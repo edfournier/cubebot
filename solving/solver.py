@@ -25,11 +25,13 @@ def genPTable(s, d, lm=-3):
       if int(m / 3) == int(lm / 3):
         continue
       genPTable(py222.doMove(s, m), d + 1, m)
+    
+solutions = []
 
 # IDA* which prints all optimal solutions
 def IDAStar(s, d, moves, lm=-3):
   if py222.isSolved(s):
-    printMoves(moves)
+    solutions.append(stringify(moves))
     return True
   else:
     sOP = py222.getOP(s)
@@ -46,32 +48,23 @@ def IDAStar(s, d, moves, lm=-3):
         return True
   return False
 
-# print a move sequence from an array of move indices
-def printMoves(moves):
+def stringify(moves):
   moveStr = ""
   for m in moves:
     moveStr += moveStrs[m] + " "
-  print(moveStr)
+  return moveStr
 
 # solve a cube state
 def solveCube(s):
-  # print cube state
-  py222.printCube(s)
-
-  # FC-normalize stickers
-  print("Normalizing stickers...")
+  solutions.clear()
   s = py222.normFC(s)
-
-  # generate pruning tables
-  print("Generating pruning tables...")
   genOTable(py222.initState(), 0)
   genPTable(py222.initState(), 0)
 
   # run IDA*
-  print("Searching...")
   solved = False
   depth = 1
   while depth <= 11 and not solved:
-    print("Depth {}".format(depth))
     solved = IDAStar(s, depth, [])
     depth += 1
+  return solutions

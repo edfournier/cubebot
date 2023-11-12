@@ -13,5 +13,5 @@
 - ESP32
 - 5 tactile buttons
 - Slide switch
-- 2-8 servo motors (???)
+- 2-8 servo motors 
 - Jumper wires

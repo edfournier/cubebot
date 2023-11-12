@@ -3,7 +3,7 @@ height = 720
 width = 1280
 
 # x > width / 2
-x = 560 
+x = 580
 
 # Compute crosshairs determined by x
 y = int((height - width) / 2) + x

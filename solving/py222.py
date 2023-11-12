@@ -135,19 +135,3 @@ def indexP2(sOP):
 # get a unique index for the piece orientation and permutation state (0-3674159)
 def indexOP(sOP):
   return indexO(sOP) * 5040 + indexP2(sOP)
-
-# print state of the cube
-def printCube(s):
-  print("      ┌──┬──┐")
-  print("      │ {}│ {}│".format(s[0], s[1]))
-  print("      ├──┼──┤")
-  print("      │ {}│ {}│".format(s[2], s[3]))
-  print("┌──┬──┼──┼──┼──┬──┬──┬──┐")
-  print("│ {}│ {}│ {}│ {}│ {}│ {}│ {}│ {}│".format(s[16], s[17], s[8], s[9], s[4], s[5], s[20], s[21]))
-  print("├──┼──┼──┼──┼──┼──┼──┼──┤")
-  print("│ {}│ {}│ {}│ {}│ {}│ {}│ {}│ {}│".format(s[18], s[19], s[10], s[11], s[6], s[7], s[22], s[23]))
-  print("└──┴──┼──┼──┼──┴──┴──┴──┘")
-  print("      │ {}│ {}│".format(s[12], s[13]))
-  print("      ├──┼──┤")
-  print("      │ {}│ {}│".format(s[14], s[15]))
-  print("      └──┴──┘")

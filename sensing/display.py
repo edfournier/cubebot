@@ -19,14 +19,14 @@ colorMap = [
 
 while True:
     # Capture and make HLS copy
-    result, image = cam.read()
+    check, image = cam.read()
     imageHLS = cv2.cvtColor(image, cv2.COLOR_BGR2HLS)
     # Draw and label crosshairs
     for x, y in points:
         bgr, name = colorMap[getColor(imageHLS[y][x])]
         cv2.circle(image, (x, y), 3, (0, 0, 0), -1)
-        cv2.rectangle(image, (x - 50, y - 10), (x + int(len(name) / 6.0 * 75), y - 50), (30, 30, 30), -1)
-        cv2.putText(image, name, (x - 50, y - 20), cv2.FONT_HERSHEY_SIMPLEX, 1, bgr, 1)
+        cv2.rectangle(image, (x - 32, y - 6), (x + int(len(name) / 6.0 * 35), y - 26), (30, 30, 30), -1)
+        cv2.putText(image, name, (x - 30, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, bgr, 1)
     # Display image and wait 1ms or end when key is pressed
     cv2.imshow('image', image)
     key = cv2.waitKey(1) 

@@ -7,7 +7,7 @@ from time import sleep
 def getColor(HLS):
     h, l, s = HLS
     color = 1 
-    if s < 50: 
+    if l > 200 or s < 50: 
         color = 0 # White
     elif h < 3:
         color = 1 # Red
@@ -29,7 +29,7 @@ class Sensor:
     def getSide(self):
         side = []
         # Sensing each side
-        result, image = self.cam.read()
+        check, image = self.cam.read()
         imageHLS = cv2.cvtColor(image, cv2.COLOR_BGR2HLS)
         # Top to bottom, left to right
         colors = []
