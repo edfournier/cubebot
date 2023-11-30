@@ -6,7 +6,7 @@ from time import sleep
 # Maps HLS tuple to color code
 def getColor(HLS):
     h, l, s = HLS
-    color = 1 
+    color = 1
     if l > 200 or s < 50: 
         color = 0 # White
     elif h < 3:

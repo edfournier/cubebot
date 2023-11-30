@@ -1,10 +1,10 @@
 # Window dimensions
-height = 720
-width = 1280
+HEIGHT = 720
+WIDTH = 1280
 
 # x > width / 2
 x = 580
 
 # Compute crosshairs determined by x
-y = int((height - width) / 2) + x
-points = [(x, y), (width - x, y), (x, height - y), (width - x, height - y)]
+y = int((HEIGHT - WIDTH) / 2) + x
+points = [(x, y), (WIDTH - x, y), (x, HEIGHT - y), (WIDTH - x, HEIGHT - y)]

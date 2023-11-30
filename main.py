@@ -1,24 +1,29 @@
+# python3 sensing/display.py & python3 main.py
 import sys
 import cv2
+import serial
 sys.path.append("sensing")
 sys.path.append("solving")
-from sensing import Sensor
-from solving import solveCube
+from sensor import Sensor
+from solver import solveCube
 
-# python3 main.py & python3 sensor/display.py
+PORT = ""
+BAUD_RATE = 0
+
 print("Sensing scramble...")
 
 sensor = Sensor()
-moves = ['x', 'y', 'y', 'y', 'yx', 'xx']
-offsets = [0, 8, 4, 20, 16, 12]
+rotations = ['x', 'y', 'y', 'y', 'yx', 'xx']    # x is up move, y is right
+offsets = [0, 8, 4, 20, 16, 12]                 # read top, then front
 scramble = [0] * 24
  
 for i in range(6):
     input()
     side = sensor.getSide()
+    print(side)
     for j in range(4):
         scramble[offsets[i] + j] = side[j]
-    # send moves[i] to ESP32 and wait
+    # send rotations[i] to ESP32 and wait to proceed
 
 sensor.release()
 
@@ -28,5 +33,6 @@ print("Solving scramble....")
 solution = solveCube(scramble)[0]
 
 print("Solution:", solution)
-#print("Sending solution to ESP32...")
+print("Sending solution to ESP32...")
+
 # send solution to EPS32
