@@ -127,18 +127,6 @@ void setup() {
   delay(BEAT);
   table.detach();
   delay(3000);
-  /*
-  right();
-  up();
-  front();
-  front();
-  up();
-  right();
-  up();
-  */
-  up_prime();
-  right_prime();
-  front_prime();
 }
 
 String moves = "";
