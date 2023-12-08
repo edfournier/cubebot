@@ -1,1 +1,1 @@
-2x2 Rubik's cube solver made as final project for CICS 265.
+2x2 Rubik's cube solver made as final project for CICS 256.
