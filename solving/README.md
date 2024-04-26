@@ -1,1 +1,1 @@
-Original py222 and solver source code written by MeepMoop an be found at: https://github.com/MeepMoop/py222
+Original `py222` source code written by user MeepMoop can be found at: https://github.com/MeepMoop/py222
